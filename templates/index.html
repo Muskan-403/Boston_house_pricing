@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            padding: 40px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            margin-top: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            color: #27ae60;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form action="/predict" method="POST">
+            <input type="number" name="CRIM" step="any" placeholder="CRIM">
+            <input type="number" name="ZN" step="any" placeholder="ZN">
+            <input type="number" name="INDUS" step="any" placeholder="INDUS">
+            <input type="number" name="CHAS" step="any" placeholder="CHAS (0 or 1)">
+            <input type="number" name="NOX" step="any" placeholder="NOX">
+            <input type="number" name="RM" step="any" placeholder="RM">
+            <input type="number" name="AGE" step="any" placeholder="AGE">
+            <input type="number" name="DIS" step="any" placeholder="DIS">
+            <input type="number" name="RAD" step="any" placeholder="RAD">
+            <input type="number" name="TAX" step="any" placeholder="TAX">
+            <input type="number" name="PTRATIO" step="any" placeholder="PTRATIO">
+            <input type="number" name="B" step="any" placeholder="B">
+            <input type="number" name="LSTAT" step="any" placeholder="LSTAT">
+            <button class="btn" type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
